@@ -18,17 +18,19 @@ bool PasswordCheck(string login, string password, string confirmpassword) {
         {
             for (char allowedSymbol : allowedSymbols) {
                 if (loginSymbol == allowedSymbol) {
-                    correctSymbols.append(&loginSymbol);
+                    correctSymbols = correctSymbols + loginSymbol;
                 }
             }
         }
-        correctSymbols = "";
         if (correctSymbols != login) {
             throw WrongLoginException("Логин записан неверно");
         }
+        correctSymbols = "";
         for (char passwordSymbol : password) {
             for (char allowedSymbol : allowedSymbols) {
-                correctSymbols.append(&passwordSymbol);
+                if (passwordSymbol == allowedSymbol) {
+                    correctSymbols = correctSymbols + passwordSymbol;
+                }
             }
         }
         if (correctSymbols != password) {

@@ -6,5 +6,5 @@ using std::string;
 
 int main()
 {
-    std::cout << PasswordCheck("log", "123", "123");
+    std::cout << PasswordCheck("loсось", "123", "123");
 }
